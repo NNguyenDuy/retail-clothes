@@ -43,14 +43,13 @@ const Header = () => {
             );
           } else return null;
         })}
-        <NavLink className={""} to={"/user"}>
-          User
-        </NavLink>
+        <li>
+          <NavLink className={""} to={"/user"}>
+            User
+          </NavLink>
+        </li>
         <Dropdown overlay={menuItems} className="cursor-pointer">
-          <li
-            onClick={(e) => e.preventDefault()}
-            className="cursor-pointer hover:text-secondaryColor"
-          >
+          <li onClick={(e) => e.preventDefault()} className=" cursor-pointer">
             Categories <DownOutlined id="dropdown-header" />
           </li>
         </Dropdown>
