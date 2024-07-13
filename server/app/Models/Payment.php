@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Updated_at
  * @property string $createdAt
  * @property string $updatedAt
- * @property Order $order
  */
 class Payment extends Model
 {
@@ -26,15 +25,14 @@ class Payment extends Model
     protected $table = 'Payments';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['Order_id', 'Amount', 'Payment_method', 'Payment_status', 'Created_at', 'Updated_at', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function order()
-    {
-        return $this->belongsTo('App\Models\Order');
-    }
 }

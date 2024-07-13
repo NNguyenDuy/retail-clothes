@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Description
  * @property string $createdAt
  * @property string $updatedAt
- * @property ShopMenuRole[] $shopMenuRoles
  */
 class ShopMenu extends Model
 {
@@ -22,15 +21,14 @@ class ShopMenu extends Model
     protected $table = 'Shop_menus';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['Path', 'Description', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function shopMenuRoles()
-    {
-        return $this->hasMany('App\Models\ShopMenuRole', 'Menu_id');
-    }
 }

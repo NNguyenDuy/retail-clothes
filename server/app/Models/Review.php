@@ -13,8 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Content
  * @property string $createdAt
  * @property string $updatedAt
- * @property User $user
- * @property Product $product
  */
 class Review extends Model
 {
@@ -26,23 +24,14 @@ class Review extends Model
     protected $table = 'Reviews';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['User_id', 'Product_id', 'Rating', 'Title', 'Content', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function product()
-    {
-        return $this->belongsTo('App\Models\Product');
-    }
 }

@@ -16,8 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Deleted_at
  * @property string $createdAt
  * @property string $updatedAt
- * @property Product $product
- * @property Order $order
  */
 class OrderItem extends Model
 {
@@ -29,23 +27,14 @@ class OrderItem extends Model
     protected $table = 'Order_items';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['Product_id', 'Order_id', 'Name', 'Quantity', 'Price', 'Created_at', 'Updated_at', 'Deleted_at', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function product()
-    {
-        return $this->belongsTo('App\Models\Product');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function order()
-    {
-        return $this->belongsTo('App\Models\Order');
-    }
 }

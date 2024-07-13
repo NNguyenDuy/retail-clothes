@@ -11,8 +11,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $Status
  * @property string $createdAt
  * @property string $updatedAt
- * @property ShopMenuRole[] $shopMenuRoles
- * @property ShopUserRole[] $shopUserRoles
  */
 class Role extends Model
 {
@@ -24,23 +22,14 @@ class Role extends Model
     protected $table = 'Roles';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['Role_name', 'Description', 'Status', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function shopMenuRoles()
-    {
-        return $this->hasMany('App\Models\ShopMenuRole');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function shopUserRoles()
-    {
-        return $this->hasMany('App\Models\ShopUserRole');
-    }
 }

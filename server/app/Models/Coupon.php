@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $createdAt
  * @property string $updatedAt
  * @property string $Deleted_at
- * @property Order[] $orders
  */
 class Coupon extends Model
 {
@@ -29,15 +28,14 @@ class Coupon extends Model
     protected $table = 'Coupons';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['Coupon_code', 'Coupon_start_date', 'Coupon_end_date', 'Coupon_min_spend', 'Coupon_max_spend', 'Coupon_uses_per_customer', 'Coupon_uses_per_coupon', 'Coupon_status', 'createdAt', 'updatedAt', 'Deleted_at'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order');
-    }
 }

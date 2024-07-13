@@ -17,10 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Delivery_at
  * @property string $createdAt
  * @property string $updatedAt
- * @property OrderItem[] $orderItems
- * @property User $user
- * @property Coupon $coupon
- * @property Payment[] $payments
  */
 class Order extends Model
 {
@@ -32,39 +28,14 @@ class Order extends Model
     protected $table = 'Orders';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['User_id', 'Coupon_id', 'Status', 'Shipping_fee', 'Total', 'Created_at', 'Canceled_at', 'Completed_at', 'Delivery_at', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function orderItems()
-    {
-        return $this->hasMany('App\Models\OrderItem');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function coupon()
-    {
-        return $this->belongsTo('App\Models\Coupon');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function payments()
-    {
-        return $this->hasMany('App\Models\Payment');
-    }
 }

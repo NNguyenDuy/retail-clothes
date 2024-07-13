@@ -14,8 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Updated_at
  * @property string $createdAt
  * @property string $updatedAt
- * @property Product $product
- * @property Cart $cart
  */
 class CartItem extends Model
 {
@@ -30,20 +28,4 @@ class CartItem extends Model
      * @var array
      */
     protected $fillable = ['Product_id', 'Cart_id', 'Quantity', 'Price', 'Created_at', 'Updated_at', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function product()
-    {
-        return $this->belongsTo('App\Models\Product');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function cart()
-    {
-        return $this->belongsTo('App\Models\Cart');
-    }
 }

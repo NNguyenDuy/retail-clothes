@@ -13,10 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Address
  * @property string $createdAt
  * @property string $updatedAt
- * @property Cart[] $carts
- * @property Order[] $orders
- * @property Review[] $reviews
- * @property ShopUserRole[] $shopUserRoles
  */
 class User extends Model
 {
@@ -28,39 +24,14 @@ class User extends Model
     protected $table = 'Users';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     * 
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var array
      */
     protected $fillable = ['Password', 'Gmail', 'Phone_number', 'Fullname', 'Address', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function carts()
-    {
-        return $this->hasMany('App\Models\Cart');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function reviews()
-    {
-        return $this->hasMany('App\Models\Review');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function shopUserRoles()
-    {
-        return $this->hasMany('App\Models\ShopUserRole');
-    }
 }

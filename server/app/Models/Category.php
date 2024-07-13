@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Image
  * @property string $createdAt
  * @property string $updatedAt
- * @property Product[] $products
  */
 class Category extends Model
 {
@@ -28,12 +27,4 @@ class Category extends Model
      * @var array
      */
     protected $fillable = ['Name', 'Category_path', 'Description', 'Status', 'Image', 'createdAt', 'updatedAt'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function products()
-    {
-        return $this->hasMany('App\Models\Product');
-    }
 }
